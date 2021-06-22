@@ -1,0 +1,255 @@
+/* COMMON */
+/* * {
+  border: 1px solid white;
+} */
+body {
+  background-color: #141414;
+  color: white;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 10px;
+}
+
+.inner {
+  width: 94%;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 101px;
+  height: 38px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.btn i {
+  margin-right: 10px;
+}
+
+/* HEADER */
+.yego_video {
+  position: relative;
+  width: 100%;
+  height: 713px;
+}
+
+.control_video {
+  position: absolute;
+  top: 125px;
+  left: 28px;
+}
+
+.control_video .control_container {
+  margin-bottom: 10px;
+}
+
+.control_video img {
+  width: 456px;
+  height: 194px;
+  margin-bottom: 10px;
+}
+
+.control_video p {
+  width: 456px;
+  height: 60px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.control_btn1 {
+  display: flex;
+}
+
+.play_btn_header {
+  color: black;
+  margin-right: 15px;
+}
+
+.info_btn_header {
+  width: 131px;
+  background-color: rgba(77, 76, 76, 0.7);
+}
+
+.control_video .control_btn2 {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  position: absolute;
+  top: 280px;
+  left: 1000px;
+  display: flex;
+  align-items: center;
+}
+
+.control_video .control_btn2 .fa-play-circle {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.control_video .control_btn2 .year {
+  width: 185.5px;
+  display: flex;
+  padding-left: 10px;
+  height: 40px;
+  align-items: center;
+  border-left: 3px solid white;
+  background-color: rgba(70, 70, 70, 0.7);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+header .inner {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+header .logo {
+  background-image: url("../main_logo2.png");
+  width: 110px;
+  height: 50px;
+  background-position: center;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+/* header::before {
+  content: "";
+  position: absolute;
+  height: 73px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 15%,
+    rgba(0, 0, 0, 0)
+  );
+} */
+
+header .menu_bar {
+  padding-top: 5px;
+  padding-left: 15px;
+}
+
+header .menu_list {
+  display: flex;
+  font-size: 14px;
+}
+
+header .menu_bar li {
+  padding: 10px;
+}
+
+header .menu_icon {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-direction: row-reverse;
+  padding: 5px;
+}
+
+header .menu_icon i {
+  margin-right: 25px;
+  font-size: 19px;
+}
+
+header .menu_icon .fa-caret-up {
+  transform: rotate(180deg);
+  font-size: 14px;
+}
+
+.user_face {
+  background-image: url("../1.jpeg");
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+  margin-right: 5px;
+}
+
+.user_play_data {
+  width: 98%;
+  position: absolute;
+  top: 71%;
+  left: 25px;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+.user_play_data p {
+  font-size: 19px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.user_play_data img {
+  width: 231px;
+  border-radius: 5px;
+  margin-right: 5px;
+  display: block;
+}
+
+.user_play_data .user_movie:hover {
+  transform: scale(1.5);
+  transition: all 1s;
+}
+
+.user_play_data .only_movie:hover {
+  transform: scale(1.15);
+  transition: all 1s;
+}
+
+.user_play_data .rank_poster:hover {
+  transform: scaleX(2);
+  transition: all 1s;
+}
+
+.user_play_data .inner {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.show_ranking {
+  display: flex;
+}
+
+.show_ranking .rank {
+  width: 114px;
+  height: 173px;
+  transform: translate(25px);
+}
+
+.show_ranking .rank_poster {
+  width: 114px;
+  height: 173px;
+}
+
+.user_play_data .inner .user_container,
+.kor_container,
+.hot_container,
+.only_container,
+.replay_container,
+.korjam_container,
+.ani_container,
+.komovie_container,
+.ranking_container {
+  display: flex;
+}
