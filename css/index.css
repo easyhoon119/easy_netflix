@@ -12,6 +12,12 @@ header {
   width: 100%;
   padding-top: 3px;
   padding-bottom: 10px;
+  transition: all 0.8s;
+}
+
+.headers {
+  position: relative;
+  height: fit-content;
 }
 
 .inner {
@@ -36,6 +42,10 @@ header {
   margin-right: 10px;
 }
 
+.animate {
+  transition: 0.5s ease-out;
+}
+
 /* HEADER */
 .yego_video {
   position: relative;
@@ -46,7 +56,7 @@ header {
 .control_video {
   position: absolute;
   top: 125px;
-  left: 28px;
+  left: 40px;
 }
 
 .control_video .control_container {
@@ -80,24 +90,24 @@ header {
   background-color: rgba(77, 76, 76, 0.7);
 }
 
-.control_video .control_btn2 {
+.headers .control_btn2 {
   padding: 0;
   margin: 0;
   font-size: 20px;
   position: absolute;
-  top: 280px;
-  left: 1000px;
+  top: 400px;
+  right: 0;
   display: flex;
   align-items: center;
 }
 
-.control_video .control_btn2 .fa-play-circle {
-  font-size: 30px;
+.headers .control_btn2 .fa-play-circle {
+  font-size: 45px;
   margin-right: 10px;
 }
 
-.control_video .control_btn2 .year {
-  width: 185.5px;
+.headers .control_btn2 .year {
+  width: 178px;
   display: flex;
   padding-left: 10px;
   height: 40px;
@@ -185,10 +195,13 @@ header .menu_icon .fa-caret-up {
 }
 
 .user_play_data {
-  width: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
   position: absolute;
   top: 71%;
-  left: 25px;
+  left: 0px;
   padding-top: 50px;
   overflow: hidden;
 }
@@ -222,9 +235,35 @@ header .menu_icon .fa-caret-up {
   transition: all 1s;
 }
 
+.user_play_data i {
+  font-size: 40px;
+}
+
+.user_play_data .before {
+  display: none;
+  position: absolute;
+  top: 45%;
+  left: 0;
+  z-index: 10;
+}
+
+.user_play_data .next {
+  display: none;
+  position: absolute;
+  top: 45%;
+  right: 0;
+  z-index: 10;
+}
+
+.user_play_data .before {
+  transform: rotate(180deg);
+}
+
 .user_play_data .inner {
-  width: 100%;
-  margin-bottom: 50px;
+  width: 96%;
+  margin: 50px 0;
+  margin-top: 0;
+  position: relative;
 }
 
 .show_ranking {
@@ -252,4 +291,65 @@ header .menu_icon .fa-caret-up {
 .komovie_container,
 .ranking_container {
   display: flex;
+}
+
+/* FOOTER */
+.user_play_data .footer {
+  margin-top: 100px;
+  width: 80%;
+}
+
+.footer .social_link {
+  display: flex;
+  font-size: 30px;
+  color: #808080;
+}
+
+.footer .social_link i {
+  margin-right: 25px;
+}
+
+.footer .other_link {
+  font-size: 14px;
+}
+
+.footer .other_link ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer .other_link ul li {
+  width: 250px;
+  padding: 15px 0;
+}
+
+.footer .other_link ul a {
+  text-decoration: none;
+  color: #808080;
+}
+
+.footer .service_button {
+  margin-top: 20px;
+}
+
+.footer .service_button a {
+  text-decoration: none;
+}
+
+.footer .service_button p {
+  font-size: 13px;
+  padding: 7px;
+  color: #808080;
+  width: fit-content;
+  border: 1px solid #545454;
+}
+
+.footer .copyRight {
+  margin-top: 25px;
+  font-size: 11px;
+  color: #808080;
+}
+
+.footer .copyRight div {
+  margin-top: 8px;
 }
