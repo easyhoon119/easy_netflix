@@ -1,3 +1,5 @@
+let mouseOver = false;
+
 function addList() {
     let list = [['Run On', 'https://occ-0-1009-1361.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABZzdNnoG93Vq6T7blIphj4jZ86XS3m3ZHwGhtwCJaBvy7w-iuhnGUAMdPIJPx0WOvuJz9Hpnk7y5_utiHlwSZliuCrc.webp?r=77f'],
     ['이구역의 미친x', 'https://occ-0-1009-1361.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcM0eqeI_KHzW9niYOvw2YIIX1z8FJvCqupJzeRIHCfBLE_zxYMZY3u3pF_cdWqwB8ZMPUI9HxZpBIrn3HNbMFdZv8hmTPwRM1Hq_7nRSD9-Gywmh4O4HOP2XVSgSBoZWpxCEMVdnTaNAgCo6AFVc-LKC-BuaDH0tw_xrtQaQJa7I8YvGc4sfOVG8rOG.webp?r=6f5'],
@@ -35,47 +37,47 @@ function addList() {
 
     let container = document.querySelector('.user_container');
     for (let i = 0; i < list.length; i++) {
-        container.innerHTML += `<div class="user_movie"><img src="${list[i][1]}" alt="${list[i][0]}"/></div>`;
+        container.innerHTML += `<div class="user_movie"><img src="${list[i][1]}" alt="${list[i][0]}" class="wow"/></div>`;
     }
 
     let container_kor = document.querySelector('.kor_container');
     for (let i = 0; i < list_kor.length; i++) {
-        container_kor.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}"/></div>`;
+        container_kor.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}" class="wow"/></div>`;
     }
 
     let container_hot = document.querySelector('.hot_container');
     for (let i = list_kor.length - 1; i >= 0; i--) {
-        container_hot.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}"/></div>`;
+        container_hot.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}" class="wow"/></div>`;
     }
 
     let container_only = document.querySelector('.only_container');
     for (let i = 0; i < list_only.length; i++) {
-        container_only.innerHTML += `<div class="only_movie"><img src="${list_only[i][1]}" alt="${list_only[i][0]}"/></div>`;
+        container_only.innerHTML += `<div class="only_movie user_movie"><img src="${list_only[i][1]}" alt="${list_only[i][0]}" class="wow"/></div>`;
     }
 
     let container_replay = document.querySelector('.replay_container');
     for (let i = 0; i < list_kor.length; i++) {
-        container_replay.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}"/></div>`;
+        container_replay.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}" class="wow"/></div>`;
     }
 
     let container_korjam = document.querySelector('.korjam_container');
     for (let i = list_kor.length - 1; i >= 0; i--) {
-        container_korjam.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}"/></div>`;
+        container_korjam.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}" class="wow"/></div>`;
     }
 
     let container_ani = document.querySelector('.ani_container');
     for (let i = 0; i < list_kor.length; i++) {
-        container_ani.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}"/></div>`;
+        container_ani.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}" class="wow"/></div>`;
     }
 
     let container_komovie = document.querySelector('.komovie_container');
     for (let i = list_kor.length - 1; i >= 0; i--) {
-        container_komovie.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}"/></div>`;
+        container_komovie.innerHTML += `<div class="user_movie"><img src="${list_kor[i][1]}" alt="${list_kor[i][0]}" class="wow"/></div>`;
     }
 
     let container_rank = document.querySelector('.ranking_container');
     for (let i = 0; i < list_ranking.length; i++) {
-        container_rank.innerHTML += `<div class="show_ranking"><img src="./${list_ranking[i][1]}.png" alt="1등" class="rank"><img src="${list_ranking[i][2]}" alt="${list_ranking[i][0]}" class="rank_poster"></div>`;
+        container_rank.innerHTML += `<div class="show_ranking"><img src="${list_ranking[i][2]}" alt="${list_ranking[i][0]}" class="rank_poster"><img src="./${list_ranking[i][1]}.png" alt="1등" class="rank"></div>`;
     }
 }
 
@@ -93,11 +95,27 @@ function changeNavbar() {
 
 function yegoPlay() {
     let yego_video = document.querySelector('.yego_video');
-    let play_btn = document.querySelector('.fa-play-circle');
+    let sound_on = document.querySelector('.fa-volume-up');
+    let muted = document.querySelector('.fa-volume-mute');
 
-    play_btn.addEventListener('click', () => {
-        yego_video.play();
+    sound_on.addEventListener('click', () => {
+        yego_video.muted = false;
+        yego_video.volume = 0.5;
+        sound_on.style.display = 'none';
+        muted.style.display = 'block';
     });
+
+    muted.addEventListener('click', () => {
+        yego_video.muted = true;
+        yego_video.volume = 0.5;
+        sound_on.style.display = 'block';
+        muted.style.display = 'none';
+    });
+
+    yego_video.onended = function () {
+        yego_video.poster = 'https://occ-0-1009-1361.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABTx8ZUPqCWCUruMophPXJc6ELYsiGcmFiqmgnaofd6Ul6kAJgMfooJS0eQ15Z5n-nCfWzupFBd2p4xlYJ8Cg-RMmvbqB.webp?r=1e6';
+        yego_video.src = '../queens.mp4';
+    };
 }
 
 function updateWidth(slideWidth, slides, slide) {
@@ -129,10 +147,10 @@ function fade() {
 function moveslider(num, slides, slidewidth, slideCount, e) {
     slides.style.transform = `translate(${-num * slidewidth - (slidewidth) * (slideCount - 1)}px)`;
     e.target.currentIndex = num;
-    console.log(num, slideCount);
+    // console.log(num, slideCount);
     if (num == e.target.slideCount - 1 || num == -e.target.slideCount) {
         setTimeout(() => {
-            console.log(slides);
+            // console.log(slides);
             slides.classList.remove('animate');
             slides.style.transform = `translate(${-(slidewidth) * (e.target.slideCount - 1)}px)`;
             e.target.currentIndex = 0;
@@ -141,6 +159,48 @@ function moveslider(num, slides, slidewidth, slideCount, e) {
             slides.classList.add('animate');
         }, 600);
     }
+}
+
+function showDetail() {
+    let user_movie = document.querySelectorAll('.hover_container img.wow');
+    user_movie.forEach(element => {
+        element.addEventListener('mouseover', (event) => {
+            event.stopPropagation();
+            let movie_parent = event.target.parentNode;
+            let input = '';
+            input += `<div class="movie_detail" style="z-index : 999999">
+                            <div class="detail_btn">
+                                <i class="far fa-play-circle"></i>
+                                <i class="fas fa-plus-circle"></i>
+                                <i class="far fa-thumbs-up"></i>
+                                <i class="far fa-thumbs-down"></i>
+                                <i class="far fa-times-circle"></i>
+                                <i class="fas fa-chevron-circle-down"></i>
+                            </div>
+                            <p class="detail_title">시즌 1: 1화 "${event.target.alt}"</p>
+                            <div class="detail_time">
+                                <div class="time_rating"></div>
+                                <p class="time_watch">총 30분 중 12분</p>
+                            </div>
+                    </div>`;
+            movie_parent.insertAdjacentHTML("beforeend", input);
+            event.stopImmediatePropagation();
+
+        }, { capture: false, once: false, passive: false });
+    });
+
+    let user_movie2 = document.querySelectorAll('.user_movie');
+    user_movie2.forEach(element => {
+        element.addEventListener('mouseleave', (event) => {
+            event.stopPropagation();
+            let movie_detail = event.target.childNodes[1];
+            console.log(event.target);
+            if (movie_detail !== undefined) {
+                event.target.removeChild(movie_detail);
+            }
+            event.stopImmediatePropagation();
+        }, { capture: false, once: false, passive: false });
+    });
 }
 
 window.onload = function () {
@@ -200,6 +260,9 @@ window.onload = function () {
             }
         });
     });
+    // 영화 폿터 호버시 상세정보 보여주기
+    let btn = document.querySelectorAll('.hover_container img');
+    showDetail();
 }
 
 // // 1.필요변수 선언

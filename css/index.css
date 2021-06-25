@@ -101,9 +101,23 @@ header {
   align-items: center;
 }
 
-.headers .control_btn2 .fa-play-circle {
-  font-size: 45px;
-  margin-right: 10px;
+.headers .control_btn2 .fa-volume-up {
+  font-size: 25px;
+  margin-right: 20px;
+  border: 3px solid white;
+  border-radius: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.headers .control_btn2 .fa-volume-mute {
+  display: none;
+  font-size: 25px;
+  margin-right: 20px;
+  border: 3px solid white;
+  border-radius: 50px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .headers .control_btn2 .year {
@@ -218,16 +232,73 @@ header .menu_icon .fa-caret-up {
   border-radius: 5px;
   margin-right: 5px;
   display: block;
+  position: relative;
+}
+
+.user_play_data .hover_container .movie_detail {
+  background-color: #1c1c1c;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transform: translateY(-10px);
+  position: absolute;
+  top: 135px;
+  left: 0;
+  width: 98%;
+  margin-right: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.user_play_data .only_container .movie_detail {
+  background-color: #1c1c1c;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transform: translateY(-10px);
+  position: absolute;
+  top: 450px;
+  left: 0;
+  width: 98%;
+  margin-right: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.user_play_data .movie_detail i {
+  font-size: 20px;
+  transition: all 1s 1s;
+}
+
+.user_play_data .movie_detail i:last-child {
+  margin-left: 55px;
+}
+
+.user_play_data .movie_detail p {
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+.user_play_data .movie_detail .detail_time {
+  display: flex;
+  align-items: center;
+}
+
+.user_play_data .movie_detail .time_rating {
+  width: 100px;
+  height: 1px;
+  background-color: gray;
+  margin-right: 10px;
 }
 
 .user_play_data .user_movie:hover {
   transform: scale(1.5);
   transition: all 1s;
+  z-index: 200;
 }
 
 .user_play_data .only_movie:hover {
-  transform: scale(1.15);
+  transform: scale(1.4, 0.8);
   transition: all 1s;
+  z-index: 200;
 }
 
 .user_play_data .rank_poster:hover {
@@ -240,17 +311,25 @@ header .menu_icon .fa-caret-up {
 }
 
 .user_play_data .before {
+  align-items: center;
+  justify-content: center;
   display: none;
+  width: 50px;
+  height: 100%;
   position: absolute;
-  top: 45%;
+  top: 0;
   left: 0;
   z-index: 10;
 }
 
 .user_play_data .next {
   display: none;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  top: 45%;
+  height: 100%;
+  width: 50px;
+  top: 0;
   right: 0;
   z-index: 10;
 }
