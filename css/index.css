@@ -120,6 +120,16 @@ header {
   box-sizing: border-box;
 }
 
+.headers .control_btn2 .fa-redo {
+  display: none;
+  font-size: 25px;
+  margin-right: 20px;
+  border: 3px solid white;
+  border-radius: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 .headers .control_btn2 .year {
   width: 178px;
   display: flex;
@@ -290,20 +300,15 @@ header .menu_icon .fa-caret-up {
 }
 
 .user_play_data .user_movie:hover {
-  transform: scale(1.5);
-  transition: all 1s;
+  transform: scale(1.3) translateY(-40px) !important;
+  transition: all 0.5s ease-in-out;
   z-index: 200;
 }
 
 .user_play_data .only_movie:hover {
-  transform: scale(1.4, 0.8);
+  transform: scale(1.2);
   transition: all 1s;
   z-index: 200;
-}
-
-.user_play_data .rank_poster:hover {
-  transform: scaleX(2);
-  transition: all 1s;
 }
 
 .user_play_data i {
@@ -356,7 +361,7 @@ header .menu_icon .fa-caret-up {
 }
 
 .show_ranking .rank_poster {
-  width: 114px;
+  width: 120px;
   height: 173px;
 }
 

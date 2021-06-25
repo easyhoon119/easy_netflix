@@ -97,10 +97,12 @@ function yegoPlay() {
     let yego_video = document.querySelector('.yego_video');
     let sound_on = document.querySelector('.fa-volume-up');
     let muted = document.querySelector('.fa-volume-mute');
+    let restart = document.querySelectorAll('.fa-redo');
 
     sound_on.addEventListener('click', () => {
         yego_video.muted = false;
         yego_video.volume = 0.5;
+        restart.style.display = 'none';
         sound_on.style.display = 'none';
         muted.style.display = 'block';
     });
@@ -108,6 +110,7 @@ function yegoPlay() {
     muted.addEventListener('click', () => {
         yego_video.muted = true;
         yego_video.volume = 0.5;
+        restart.style.display = 'none';
         sound_on.style.display = 'block';
         muted.style.display = 'none';
     });
@@ -115,6 +118,9 @@ function yegoPlay() {
     yego_video.onended = function () {
         yego_video.poster = 'https://occ-0-1009-1361.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABTx8ZUPqCWCUruMophPXJc6ELYsiGcmFiqmgnaofd6Ul6kAJgMfooJS0eQ15Z5n-nCfWzupFBd2p4xlYJ8Cg-RMmvbqB.webp?r=1e6';
         yego_video.src = '../queens.mp4';
+        restart.style.display = 'block';
+        sound_on.style.display = 'none';
+        muted.style.display = 'none';
     };
 }
 
@@ -161,14 +167,17 @@ function moveslider(num, slides, slidewidth, slideCount, e) {
     }
 }
 
+let boolValue = true;
+
 function showDetail() {
     let user_movie = document.querySelectorAll('.hover_container img.wow');
     user_movie.forEach(element => {
-        element.addEventListener('mouseover', (event) => {
+        element.addEventListener('mouseenter', (event) => {
             event.stopPropagation();
-            let movie_parent = event.target.parentNode;
-            let input = '';
-            input += `<div class="movie_detail" style="z-index : 999999">
+            if (boolValue === true) {
+                let movie_parent = event.target.parentNode;
+                let input = '';
+                input += `<div class="movie_detail" style="z-index : 999999">
                             <div class="detail_btn">
                                 <i class="far fa-play-circle"></i>
                                 <i class="fas fa-plus-circle"></i>
@@ -183,9 +192,10 @@ function showDetail() {
                                 <p class="time_watch">총 30분 중 12분</p>
                             </div>
                     </div>`;
-            movie_parent.insertAdjacentHTML("beforeend", input);
-            event.stopImmediatePropagation();
-
+                movie_parent.insertAdjacentHTML("beforeend", input);
+                event.stopImmediatePropagation();
+                boolValue = false;
+            }
         }, { capture: false, once: false, passive: false });
     });
 
@@ -199,6 +209,7 @@ function showDetail() {
                 event.target.removeChild(movie_detail);
             }
             event.stopImmediatePropagation();
+            boolValue = true;
         }, { capture: false, once: false, passive: false });
     });
 }
@@ -261,7 +272,6 @@ window.onload = function () {
         });
     });
     // 영화 폿터 호버시 상세정보 보여주기
-    let btn = document.querySelectorAll('.hover_container img');
     showDetail();
 }
 
