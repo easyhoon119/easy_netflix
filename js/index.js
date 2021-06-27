@@ -77,7 +77,7 @@ function addList() {
 
     let container_rank = document.querySelector('.ranking_container');
     for (let i = 0; i < list_ranking.length; i++) {
-        container_rank.innerHTML += `<div class="show_ranking"><img src="${list_ranking[i][2]}" alt="${list_ranking[i][0]}" class="rank_poster"><img src="./${list_ranking[i][1]}.png" alt="1등" class="rank"></div>`;
+        container_rank.innerHTML += `<div class="show_ranking"><img src="../${list_ranking[i][1]}.png" alt="${list_ranking[i][0]}" class="rank_poster"><img src="${list_ranking[i][2]}" alt="1등" class="rank"></div>`;
     }
 }
 
@@ -97,7 +97,11 @@ function yegoPlay() {
     let yego_video = document.querySelector('.yego_video');
     let sound_on = document.querySelector('.fa-volume-up');
     let muted = document.querySelector('.fa-volume-mute');
-    let restart = document.querySelectorAll('.fa-redo');
+    let restart = document.querySelector('.fa-redo');
+
+    setTimeout(() => {
+        yego_video.play();
+    }, 2000);
 
     sound_on.addEventListener('click', () => {
         yego_video.muted = false;
@@ -122,6 +126,13 @@ function yegoPlay() {
         sound_on.style.display = 'none';
         muted.style.display = 'none';
     };
+
+    restart.addEventListener('click', () => {
+        yego_video.play();
+        restart.style.display = 'none';
+        sound_on.style.display = 'block';
+        muted.style.display = 'none';
+    });
 }
 
 function updateWidth(slideWidth, slides, slide) {
@@ -188,8 +199,8 @@ function showDetail() {
                             </div>
                             <p class="detail_title">시즌 1: 1화 "${event.target.alt}"</p>
                             <div class="detail_time">
-                                <div class="time_rating"></div>
-                                <p class="time_watch">총 30분 중 12분</p>
+                                <progress id="watch_time" max="100" value="30" class="time_rating"></progress>
+                                <p class="time_watch">총 30분 중 12분</progress>
                             </div>
                     </div>`;
                 movie_parent.insertAdjacentHTML("beforeend", input);
@@ -214,7 +225,57 @@ function showDetail() {
     });
 }
 
+function getToken() {
+    return window.localStorage.getItem('token');
+}
+
+function showAdminProfile() {
+    let user_face = document.querySelector('.user_face');
+    user_face.addEventListener('mouseenter', (event) => {
+        console.log(event.target.previousSibling.previousSibling);
+        event.target.childNodes[1].style.display = 'block';
+        event.target.childNodes[3].style.display = 'block';
+        event.target.previousSibling.previousSibling.style.transform = 'rotate(0deg)';
+    });
+
+    user_face.addEventListener('mouseleave', (event) => {
+        event.target.childNodes[1].style.display = 'none';
+        event.target.childNodes[3].style.display = 'none';
+        event.target.previousSibling.previousSibling.style.transform = 'rotate(180deg)';
+    });
+}
+
+function goProfileAdmin() {
+    let goProfile = document.querySelector('.go_sublogin');
+    goProfile.addEventListener('click', () => {
+        let token = localStorage.getItem('token');
+        localStorage.setItem('token', token.split('/')[0]);
+        window.location.href = '../sublogin.html';
+    });
+}
+
+function bindLogoutBtn() {
+    let logout = document.querySelector('#logout');
+    logout.addEventListener('click', () => {
+        localStorage.clear()
+        location.href = '../login.html';
+    });
+}
+
+function homeBtn() {
+    let home = document.querySelector('.logo');
+    home.addEventListener('click', () => {
+        window.location.reload()
+    });
+}
+
 window.onload = function () {
+    //토큰 체크
+    const token = getToken();
+    if (token === null) {
+        window.location.assign('../login.html');
+        return;
+    }
     // 리스트에 정보 받아오기
     addList();
     // 내브바 스크롤시 배경 바꾸기
@@ -269,10 +330,19 @@ window.onload = function () {
             else {
                 moveslider(num = event.target.currentIndex + 1, slides, slideWidth, event.target.slideCount, event);
             }
+            showDetail();
         });
     });
     // 영화 폿터 호버시 상세정보 보여주기
     showDetail();
+    //프로필관리 창 보여주기
+    showAdminProfile();
+    //프로필 관리 창으로 이동
+    goProfileAdmin();
+    //로그아웃 기능 구현
+    bindLogoutBtn();
+    //홈 버튼 구현
+    homeBtn();
 }
 
 // // 1.필요변수 선언

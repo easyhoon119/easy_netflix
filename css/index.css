@@ -49,13 +49,15 @@ header {
 /* HEADER */
 .yego_video {
   position: relative;
+  background-size: 100% 100%;
   width: 100%;
-  height: 713px;
+  /* height: 713px; */
+  padding-bottom: 2.2%;
 }
 
 .control_video {
   position: absolute;
-  top: 125px;
+  top: 220px;
   left: 40px;
 }
 
@@ -95,7 +97,7 @@ header {
   margin: 0;
   font-size: 20px;
   position: absolute;
-  top: 400px;
+  top: 470px;
   right: 0;
   display: flex;
   align-items: center;
@@ -196,6 +198,7 @@ header .menu_icon {
   flex-grow: 1;
   flex-direction: row-reverse;
   padding: 5px;
+  position: relative;
 }
 
 header .menu_icon i {
@@ -203,9 +206,97 @@ header .menu_icon i {
   font-size: 19px;
 }
 
-header .menu_icon .fa-caret-up {
+header .menu_icon > .fa-caret-up {
   transform: rotate(180deg);
+  font-size: 17px;
+  transition: all 1s;
+}
+
+header .menu_icon .user_face > .fa-caret-up {
+  font-size: 22px;
+  width: 70px;
+  text-align: center;
+  position: absolute;
+  top: 90%;
+  left: 84%;
+  display: none;
+}
+
+header .menu_icon .admin_profile {
+  display: none;
+  position: absolute;
+  padding: 20px 10px 0;
   font-size: 14px;
+  font-weight: 320;
+  top: 128%;
+  left: 70%;
+  width: 160px;
+  background-color: rgb(19, 19, 19);
+  border: 0.8px solid rgb(36, 36, 36);
+}
+
+header .menu_icon .admin_profile .hover {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+
+header .menu_icon .admin_profile .icon1 {
+  background-image: url(https://occ-0-1009-1361.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABSJ7W5XG6vPqZ3BYA5Vw915CFrIdEIoM75asUq1rqaGoYH0vWt5sGe9V4jSoG2BPkBXSpTvbNuStKXe1-PpHf9w7tOwN.png?r=7a4);
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+header .menu_icon .admin_profile .icon2 {
+  background-image: url(https://occ-0-1009-1361.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABeoiFWtkpT2ezo-zFFoj5VDcvij4ZYSLnUqgWObtKbMG85CvH7yu27n7WgP0LVu3el_Vj3hw1L-eAwDVXYm_m8iJFWo1.png?r=f08);
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+header .menu_icon .admin_profile .icon3 {
+  background-image: url(https://occ-0-1009-1361.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABRmtNzyg7zV6EC3TQGMQqbhKrAGB42lxYLSPWRqTJ_yxIx8W7rL-Abhyr7Goh0TCHU6f2b66nJAZ3sKpsYqw0HIr61mR.png?r=125);
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+header .menu_icon .profile_icon {
+  padding-left: 8px;
+}
+
+header .menu_icon .profile_icon .go_sublogin {
+  padding: 10px 0;
+}
+
+header .menu_icon .admin_profile .center {
+  border-top: 0.5px solid #808080;
+  padding: 20px 0px 8px 8px;
+}
+
+header .menu_icon .admin_profile ul {
+  display: flex;
+  flex-direction: column;
+}
+
+header .menu_icon .admin_profile ul li {
+  margin-bottom: 5px;
+}
+
+header .menu_icon .admin_profile ul li a {
+  text-decoration: none;
+  color: #f0f0f0;
 }
 
 .user_face {
@@ -294,9 +385,14 @@ header .menu_icon .fa-caret-up {
 
 .user_play_data .movie_detail .time_rating {
   width: 100px;
-  height: 1px;
+  height: 2px;
   background-color: gray;
   margin-right: 10px;
+}
+
+.user_play_data .movie_detail .time_watch {
+  color: #808080;
+  font-size: 13px;
 }
 
 .user_play_data .user_movie:hover {
@@ -357,7 +453,7 @@ header .menu_icon .fa-caret-up {
 .show_ranking .rank {
   width: 114px;
   height: 173px;
-  transform: translate(25px);
+  transform: translate(-30px);
 }
 
 .show_ranking .rank_poster {

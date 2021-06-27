@@ -46,6 +46,11 @@ header .main_logo {
   display: flex;
   justify-content: center;
   margin: 25px 0;
+  box-sizing: border-box;
+}
+
+.profile_icon .hover {
+  box-sizing: border-box;
 }
 
 .main .container .profile_icon > div {
@@ -99,4 +104,10 @@ header .main_logo {
   margin: 0 auto;
   margin-top: 50px;
   box-sizing: border-box;
+}
+
+.hover2:hover {
+  border: 1.5px solid white;
+  font-weight: 650;
+  color: white;
 }
